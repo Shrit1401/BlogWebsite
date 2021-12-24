@@ -1,0 +1,43 @@
+.grayscale{
+    filter: grayscale(1);
+}
+
+.card-quote{
+    color: white;
+}
+
+html[data-theme=light] .card-quote{
+    color: #101010;
+}
+
+::selection {
+    background: rgba(179, 212, 252, 0.7);
+}
+
+html[data-theme=dark] ::selection{
+    color: #101010;
+}
+
+.social-bar a{
+    font-size: 20px;
+}
+
+.text-right{
+    text-align: right;  
+}
+
+.card:hover{
+    text-decoration: none;
+}
+
+.mehul-card a{
+    cursor: default;
+}
+
+.post-grid a:hover{
+    cursor: pointer;
+}
+
+.thumbnail img{
+    filter: grayscale(100%);
+}

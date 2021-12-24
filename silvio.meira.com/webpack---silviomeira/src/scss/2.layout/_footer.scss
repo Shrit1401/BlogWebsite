@@ -1,0 +1,206 @@
+footer.site-footer {
+  border-top: 1px solid #e5e5e5;
+  padding: 3rem 0;
+  font-size: 1.125rem;
+  transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+  text-align: center;
+
+  @include breakpoint($md) {
+    padding: 4.875rem 0;
+    text-align: initial;
+  }
+
+  @include dark {
+    border-color: #4d4d4d;
+  }
+
+  h4 {
+    font-family: $base-family-primary;
+    font-size: 1.125rem;
+    color: #666;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+
+    @include dark {
+      color: #b2b2b2;
+    }
+  }
+
+  ul.social {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    margin-left: -0.75rem;
+    padding: 0;
+
+    @include breakpoint($md) {
+      justify-content: flex-start;
+    }
+
+    li {
+      a {
+        display: block;
+        padding: 0.75rem;
+        font-weight: 500;
+        position: relative;
+
+        &:before {
+          content: "";
+          background-color: $highlight;
+          width: 0;
+          height: 20%;
+          position: absolute;
+          left: 0.75rem;
+          bottom: 0.75rem;
+          transform: rotate(-1deg);
+          transition: width 0.6s cubic-bezier(0.37, 0.31, 0, 1),
+            background-color 0.2s ease-in-out;
+          z-index: -1;
+
+          @include dark {
+            opacity: 0.6;
+          }
+        }
+
+        &:hover::before {
+          width: calc(100% - 1.5rem);
+        }
+      }
+    }
+  }
+
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    padding: 3rem 0;
+    margin-top: 3.75rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #e5e5e5;
+    position: relative;
+    transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+    @include breakpoint($md) {
+      border-bottom: 0;
+      padding: 0;
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    @include dark {
+      border-color: #4d4d4d;
+    }
+
+    &:before {
+      content: "";
+      background-color: #e5e5e5;
+      width: 3px;
+      height: 0;
+      position: absolute;
+      left: calc(50% - 1.5px);
+      top: -2rem;
+      transition: background-color 0.2s cubic-bezier(0.76, 0, 0.24, 1),
+        width 0.5s cubic-bezier(0.76, 0, 0.24, 1),
+        height 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+
+      @include breakpoint($md) {
+        width: 0;
+        height: 3px;
+        left: -2.5rem;
+        top: calc(50% - 1.5px);
+      }
+
+      @include dark {
+        background-color: #4d4d4d;
+      }
+    }
+
+    &.is-inview {
+      &:before {
+        height: 2.5rem;
+
+        @include breakpoint($md) {
+          width: 5rem;
+          height: 3px;
+        }
+      }
+    }
+
+    mark:before {
+      height: 30%;
+      bottom: 5%;
+    }
+  }
+
+  @include breakpoint($md) {
+    .end {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .copy {
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+
+    @include dark {
+      color: #b2b2b2;
+    }
+
+    span {
+      display: block;
+
+      @include breakpoint($md) {
+        display: initial;
+
+        &::before {
+          content: "—";
+        }
+      }
+    }
+  }
+
+  .by {
+    color: #666;
+
+    @include dark {
+      color: #b2b2b2;
+    }
+
+    a {
+      color: $black;
+      font-weight: 500;
+      position: relative;
+
+      @include dark {
+        color: $white;
+      }
+
+      &:before {
+        content: "";
+        background-color: $highlight;
+        width: 0;
+        height: 30%;
+        position: absolute;
+        left: 0;
+        bottom: 0.125rem;
+        transform: rotate(-1deg);
+        transition: width 0.6s cubic-bezier(0.37, 0.31, 0, 1),
+          background-color 0.2s ease-in-out;
+        z-index: -1;
+
+        @include dark {
+          opacity: 0.6;
+        }
+      }
+
+      &:hover::before {
+        width: 100%;
+      }
+    }
+  }
+}

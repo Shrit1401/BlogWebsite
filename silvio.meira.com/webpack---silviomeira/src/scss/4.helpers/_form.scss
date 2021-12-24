@@ -1,0 +1,25 @@
+%form-default {
+  width: 100%;
+}
+
+%form-wrap {
+  display: block;
+}
+
+%form-control {
+  border: 1px solid $grey;
+  color: $black;
+  width: 100%;
+  padding: 1rem;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+    border-color: $color-primary;
+  }
+}
+
+%form-submit {
+  background-color: $black;
+  color: $white;
+}

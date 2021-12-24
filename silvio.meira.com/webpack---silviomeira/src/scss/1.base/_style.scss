@@ -1,0 +1,149 @@
+//===========================================
+// Structure Global
+//===========================================
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+
+  &.has-scroll-smooth {
+    position: fixed;
+    left: 0;
+    right: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+@include breakpoint($md) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@include breakpoint($xxl) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  background-color: $color-bg;
+  font-family: $base-family-default;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  color: $black;
+  transition: $transition;
+
+  @include dark {
+    background-color: #111;
+    color: $white;
+  }
+}
+
+main {
+  min-height: calc(100vh - 15rem);
+  padding-top: 5.875rem;
+  display: flex;
+  flex-direction: column;
+
+  @include breakpoint($md) {
+    padding-top: 7.25rem;
+  }
+}
+
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+}
+
+mark {
+  background-color: transparent;
+  color: inherit;
+  position: relative;
+
+  &:before {
+    content: "";
+    background-color: $highlight;
+    width: 0;
+    height: 20%;
+    position: absolute;
+    left: 0;
+    bottom: 22%;
+    transform: rotate(-1deg);
+    transition: width 0.6s cubic-bezier(0.37, 0.31, 0, 1)
+        calc(0.2s + var(--delay)),
+      background-color 0.2s ease-in-out;
+    z-index: -1;
+
+    @include dark {
+      opacity: 0.6;
+    }
+  }
+
+  &.pink {
+    &:before {
+      background-color: rgba(#e1005e, 0.6);
+    }
+  }
+
+  &.orange {
+    &:before {
+      background-color: rgba(#ffac30, 0.6);
+    }
+  }
+
+  &.blue {
+    &:before {
+      background-color: rgba(#3867d6, 0.6);
+    }
+  }
+
+  &.hover {
+    &:before {
+      transition: width 0.6s cubic-bezier(0.37, 0.31, 0, 1);
+    }
+
+    &:hover::before {
+      width: 100% !important;
+    }
+  }
+}
+
+.is-inview {
+  mark {
+    &:before {
+      width: 100%;
+    }
+
+    &.hover {
+      &:before {
+        width: 0;
+      }
+    }
+  }
+}
+
+.wp-embed-responsive .wp-has-aspect-ratio iframe {
+  position: relative !important;
+}

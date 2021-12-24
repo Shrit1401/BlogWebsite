@@ -1,0 +1,179 @@
+/* Animação */
+
+[data-anim] {
+  @for $i from 1 through 60 {
+    body[data-anim-duration="#{$i * 50}"] &,
+    &[data-anim][data-anim-duration="#{$i * 50}"] {
+      transition-duration: #{$i * 50}ms;
+    }
+
+    body[data-anim-delay="#{$i * 50}"] &,
+    &[data-anim][data-anim-delay="#{$i * 50}"] {
+      transition-delay: 0;
+
+      &.is-inview {
+        transition-delay: #{$i * 50}ms;
+      }
+    }
+  }
+}
+
+$aos-easing: (
+  linear: cubic-bezier(0.25, 0.25, 0.75, 0.75),
+  ease: cubic-bezier(0.25, 0.1, 0.25, 1),
+  ease-in: cubic-bezier(0.42, 0, 1, 1),
+  ease-out: cubic-bezier(0, 0, 0.58, 1),
+  ease-in-out: cubic-bezier(0.42, 0, 0.58, 1),
+  ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045),
+  ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275),
+  ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715),
+  ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1),
+  ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95),
+  ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+  ease-in-cubic: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  ease-out-cubic: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  ease-in-out-cubic: cubic-bezier(0.455, 0.03, 0.515, 0.955),
+  ease-in-quart: cubic-bezier(0.55, 0.085, 0.68, 0.53),
+  ease-out-quart: cubic-bezier(0.25, 0.46, 0.45, 0.94),
+  ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1),
+);
+
+// Easings implementations
+// Default timing function: 'ease'
+
+[data-anim] {
+  @each $key, $val in $aos-easing {
+    body[data-anim-easing="#{$key}"] &,
+    &[data-anim][data-anim-easing="#{$key}"] {
+      transition-timing-function: $val;
+    }
+  }
+}
+
+// Animations variables
+$aos-distance: 40px !default;
+$aos-distance-big: 100px !default;
+
+/**
+ * Fade animations:
+ * fade
+ * fade-up, fade-down, fade-left, fade-right
+ * fade-up-right, fade-up-left, fade-down-right, fade-down-left
+ */
+
+[data-anim^="fade"][data-anim^="fade"] {
+  opacity: 0;
+  transition-property: opacity, transform;
+
+  &.is-inview {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+[data-anim="fade-up"] {
+  transform: translate3d(0, $aos-distance, 0);
+}
+
+[data-anim="fade-up-big"] {
+  transform: translate3d(0, $aos-distance-big, 0);
+}
+
+[data-anim="fade-down"] {
+  transform: translate3d(0, -$aos-distance, 0);
+}
+
+[data-anim="fade-down-big"] {
+  transform: translate3d(0, -$aos-distance-big, 0);
+}
+
+[data-anim="fade-right"] {
+  transform: translate3d(-$aos-distance, 0, 0);
+}
+
+[data-anim="fade-right-big"] {
+  transform: translate3d(-$aos-distance-big, 0, 0);
+}
+
+[data-anim="fade-left"] {
+  transform: translate3d($aos-distance, 0, 0);
+}
+
+[data-anim="fade-left-big"] {
+  transform: translate3d($aos-distance-big, 0, 0);
+}
+
+/**
+ * Zoom animations:
+ * zoom-in, zoom-in-up, zoom-in-down, zoom-in-left, zoom-in-right
+ * zoom-out, zoom-out-up, zoom-out-down, zoom-out-left, zoom-out-right
+ */
+
+[data-anim^="zoom"][data-anim^="zoom"] {
+  transition-property: transform;
+
+  &.is-inview {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+[data-anim="zoom-in"] {
+  transform: scale(0.9);
+}
+
+[data-anim="zoom-out"] {
+  transform: scale(1.2);
+}
+
+/**
+ * Slide animations:
+ */
+
+[data-anim^="slide"][data-anim^="slide"] {
+  transition-property: clip-path, transform;
+
+  &.is-inview {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    transform: scale(1);
+  }
+}
+
+[data-anim="slide-up"] {
+  clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
+  transform: scale(1.2);
+}
+
+[data-anim="slide-down"] {
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  transform: scale(1.2);
+}
+
+/* Loading Screen Styling */
+
+.loading-screen {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  background-color: #162ff0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0) skewX(0);
+  transform-origin: top left;
+}
+
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Loading Screen Styling Ends */

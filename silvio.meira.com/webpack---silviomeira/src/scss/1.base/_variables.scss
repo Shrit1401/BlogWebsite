@@ -1,0 +1,50 @@
+// Colors ----------------------
+
+$black: #101010;
+$white: #fff;
+$grey: #4d4d4d;
+
+$color-primary: $black;
+$color-secondary: $black;
+$highlight: #efe960;
+$color-bg: $white;
+
+$transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+// images -----------------------
+
+$dir-imagem: "../images";
+$dir-svg: "../svg";
+
+// Fonts -----------------------
+
+$base-font-default: 16px;
+$base-font-primary: 14px;
+$base-font-secondary: 18px;
+$base-font-quaternary: 16px;
+
+$padding-default: 18px;
+
+// Grid -----------------------
+
+$mobile-portrait: 360px;
+$mobile-landscape: 480px;
+$tablet-min: 640px;
+$tablet-portrait: 768px;
+$tablet-landscape: 1024px;
+$desktop: 1200px;
+$mediumdesktop: 1600px;
+$largedesktop: 1900px;
+$retina-desktop: 2300px;
+
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1900px;
+
+$m-desktop: rem($desktop);
+$m-tablet-portrait: rem($tablet-portrait);
+
+// DPI -----------------------
+$high-dpi: min-resolution 1.5dppx;

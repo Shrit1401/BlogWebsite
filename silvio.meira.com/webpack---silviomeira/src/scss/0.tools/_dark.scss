@@ -1,0 +1,10 @@
+@mixin dark {
+  $this: &;
+  @at-root {
+    html[data-theme="dark"] {
+      #{$this} {
+        @content;
+      }
+    }
+  }
+}

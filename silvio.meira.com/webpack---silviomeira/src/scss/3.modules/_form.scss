@@ -1,0 +1,27 @@
+.wpcf7 {
+  @extend %form-default;
+
+  form {
+    .wpcf7-form-control-wrap {
+      @extend %form-wrap;
+    }
+
+    .wpcf7-form-control {
+      @extend %form-control;
+
+      &.wpcf7-submit {
+        @extend %form-submit;
+      }
+    }
+
+    .wpcf7-not-valid-tip {
+      color: red;
+    }
+
+    .wpcf7-response-output {
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+  }
+}

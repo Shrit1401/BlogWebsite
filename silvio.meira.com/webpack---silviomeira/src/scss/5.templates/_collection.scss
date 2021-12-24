@@ -1,0 +1,414 @@
+body.post-type-archive-acervo,
+body.tax-category-acervo {
+  header {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+    border-bottom: 1px solid #e5e5e5;
+    transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+    @include breakpoint($md) {
+      padding-top: 9.75rem;
+      padding-bottom: 2.5rem;
+      margin-bottom: 6.5rem;
+    }
+
+    @include dark {
+      border-color: #2e2e2e;
+    }
+
+    .container {
+      @include breakpoint($md) {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .categories {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      margin: 0 -1.25rem;
+      padding-left: 1.25rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      overflow-x: scroll;
+
+      @include breakpoint($md) {
+        overflow-x: initial;
+        padding: 0;
+        margin-bottom: 0;
+      }
+
+      a {
+        margin-right: 2rem;
+        padding: 0.75rem 1.25rem;
+        display: block;
+        border-radius: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        position: relative;
+
+        @include breakpoint($md) {
+          padding: 0.75rem 1.5rem;
+          font-size: 1.25rem;
+        }
+
+        &.active {
+          background-color: $black;
+          color: $white;
+
+          @include dark {
+            background-color: #2e2e2e;
+          }
+
+          span {
+            color: #ccc;
+
+            @include dark {
+              color: #999;
+            }
+          }
+        }
+
+        span {
+          color: $grey;
+          font-weight: 400;
+          font-size: 0.875rem;
+          margin-left: 0.25rem;
+
+          @include breakpoint($md) {
+            font-size: 1rem;
+          }
+
+          @include dark {
+            color: #666;
+          }
+        }
+      }
+    }
+
+    .form-search {
+      max-width: 23.125rem;
+    }
+  }
+
+  .post-grid {
+    .post-item {
+      @include breakpoint($md) {
+        width: 50%;
+      }
+
+      @include breakpoint($xl) {
+        width: 33.333333%;
+      }
+    }
+  }
+}
+
+body.single-acervo {
+  .post-content {
+    .infos-lib {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: column;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+
+      @include breakpoint($md) {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 4rem;
+      }
+
+      .item {
+        margin-bottom: 2.5rem;
+
+        @include breakpoint($md) {
+          margin-right: 5rem;
+        }
+
+        .title {
+          font-family: $base-family-primary;
+          font-size: 1.5rem;
+          font-weight: 500;
+          margin-bottom: 0.375rem;
+        }
+
+        .desc {
+          font-size: 1.5rem;
+
+          @include dark {
+            color: #c4c4c4;
+          }
+        }
+      }
+
+      .button {
+        background-color: $black;
+        color: $white;
+        font-size: 1rem;
+        padding: 1rem 2.5rem;
+        border-radius: 4rem;
+        font-weight: 500;
+        border: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        margin-bottom: 2.5rem;
+        margin-right: 5rem;
+        text-decoration: none;
+
+        @include breakpoint($md) {
+          font-size: 1.25rem;
+          padding: 1.5rem 4rem;
+        }
+
+        @include dark {
+          background-color: $white;
+          color: $black;
+        }
+
+        &:nth-child(1n + 2) {
+          background-color: rgba($black, 0.1);
+          color: $black;
+
+          @include dark {
+            background-color: rgba($white, 0.1);
+            color: $white;
+          }
+        }
+
+        svg {
+          width: 1.5rem;
+          height: 1.5rem;
+          margin-right: 1rem;
+          margin-left: -1rem;
+        }
+      }
+    }
+
+    .wp-block-embed {
+      &.is-type-video {
+        margin-bottom: 6.5rem;
+
+        @include breakpoint($xl) {
+          margin: 0 calc(-8.33333333% - 4.5rem);
+          margin-bottom: 6.5rem;
+        }
+      }
+    }
+  }
+}
+
+.card-collection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2.5rem;
+  border-radius: 0.375rem;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+  @include breakpoint($md) {
+    margin-bottom: 6.25rem;
+  }
+
+  .thumbnail {
+    background-color: rgba($black, 0.2);
+    margin-bottom: 1.25rem;
+    border-radius: 0.375rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .meta {
+    color: $grey;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 2.1;
+
+    @include breakpoint($md) {
+      margin-bottom: 2.5rem;
+    }
+
+    @include dark {
+      color: #808080;
+    }
+
+    .cat {
+      background-color: #ebebeb;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+      @include dark {
+        background-color: #2e2e2e;
+        color: $white;
+      }
+    }
+
+    .dot {
+      display: inline-block;
+      background-color: #999;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      margin: 0 0.75rem;
+      transform: translateY(-2px);
+    }
+  }
+
+  h2 {
+    font-family: $base-family-primary;
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    font-weight: 500;
+    line-height: 1.5;
+    position: relative;
+    z-index: 2;
+
+    @include breakpoint($md) {
+      font-size: 1.75rem;
+    }
+  }
+
+  &.audio {
+    border: 1px solid #e0e0e0;
+    padding: 2rem;
+
+    @include breakpoint($md) {
+      padding: 3rem;
+    }
+
+    @include dark {
+      border-color: #2e2e2e;
+    }
+  }
+
+  &.video {
+    background-color: $grey;
+    padding: 2rem;
+    color: $white;
+
+    @include breakpoint($md) {
+      padding: 3rem;
+    }
+
+    .thumbnail {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      &:before {
+        content: "";
+        background-image: linear-gradient(
+          to bottom,
+          rgba($black, 0.3),
+          rgba($black, 0.9) 80%
+        );
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .meta {
+      margin-bottom: 16.25rem;
+      color: $white;
+
+      .cat {
+        background-color: $white;
+        color: $grey;
+
+        @include dark {
+          background-color: $white;
+          color: $black;
+        }
+      }
+
+      .dot {
+        background-color: $white;
+      }
+
+      span {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &.ebook {
+    .meta {
+      padding-top: 0.75rem;
+    }
+  }
+}
+
+.fixed-player {
+  background-color: $white;
+  box-shadow: 0 0 3.5rem rgba($black, 0.1);
+  width: calc(100% - 2.5rem);
+  max-width: 50rem;
+  border-radius: 1rem;
+  display: flex;
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1rem;
+  z-index: 103;
+  transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+  @include breakpoint($md) {
+    width: calc(100% - 8rem);
+    right: 4rem;
+    bottom: 2rem;
+  }
+
+  @include dark {
+    background-color: $black;
+  }
+
+  .close {
+    background-color: #fff;
+    box-shadow: 0 1rem 2rem rgba($black, 0.2);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    position: absolute;
+    right: -2rem;
+    top: -2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.76, 0, 0.24, 1);
+
+    @include dark {
+      background-color: #191919;
+    }
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
